@@ -7,4 +7,5 @@ declare module '*.svg' {
   ): React.ReactElement;
   const url: string;
   export default url;
+  
 }
