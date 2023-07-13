@@ -1,5 +1,6 @@
 {
   "private": true,
+  "version": "1.0.0",
   "scripts": {
     "start": "cross-env UMI_ENV=dev umi dev",
     "start:test": "cross-env UMI_ENV=test umi dev",

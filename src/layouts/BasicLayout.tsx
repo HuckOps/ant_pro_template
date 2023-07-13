@@ -8,6 +8,7 @@ import React, { ReactElement } from "react";
 import { Link, Outlet, useLocation, useSelector } from "umi";
 import defaultSettings from "../../config/defaultSettings";
 import routes from "../../config/routes";
+import { BodyFooterRender } from "./footer";
 
 const { REACT_APP_ENV } = process.env;
 
@@ -45,6 +46,8 @@ export default function () {
       avatarProps={{
         size: "small",
         title: currentUser?.user?.username,
+        // icon: currentUser?.user?.icon,
+        src: currentUser?.user?.icon,
         render: (props, dom) => {
           return (
             <Dropdown
@@ -63,6 +66,7 @@ export default function () {
           );
         },
       }}
+      footerRender={BodyFooterRender}
     >
       <PageContainer>
         <Outlet />

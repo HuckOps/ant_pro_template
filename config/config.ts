@@ -8,6 +8,7 @@ const { REACT_APP_ENV } = process.env;
 export default defineConfig({
   define: {
     "process.env": process.env,
+    "process.version": require("../package.json").version,
   },
   plugins: ["@umijs/plugins/dist/dva"],
   dva: {},
