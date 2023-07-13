@@ -6,7 +6,11 @@ import {
 import { Dropdown } from "antd";
 import React, { ReactElement } from "react";
 import { Link, Outlet, useLocation, useSelector } from "umi";
+import defaultSettings from "../../config/defaultSettings";
 import routes from "../../config/routes";
+
+const { REACT_APP_ENV } = process.env;
+
 export default function () {
   const { pathname } = useLocation();
   if (pathname === "/login") {
@@ -28,6 +32,7 @@ export default function () {
   ) => <Link to={{ pathname: item.path }}>{dom}</Link>;
   return (
     <ProLayout
+      {...defaultSettings}
       location={{ pathname }}
       layout="mix"
       breadcrumbRender={(routes = []) => {

@@ -1,15 +1,20 @@
-import { defineConfig } from 'umi';
+import { defineConfig } from "umi";
 
-import routes from './routes';
+import proxy from "./proxy";
+import routes from "./routes";
 
+const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
-  dva: {
+  define: {
+    "process.env": process.env,
   },
+  dva: {},
 
   // umi routes: https://umijs.org/docs/routing
   routes,
-//   layout: {},
+  //   layout: {},
   mfsu: {},
-  mock: {}
+  mock: {},
+  proxy: proxy[REACT_APP_ENV || "dev"],
 });
