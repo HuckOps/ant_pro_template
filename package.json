@@ -1,12 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "start": "cross-env UMI_ENV=dev max dev",
-    "start:test": "cross-env UMI_ENV=test max dev",
-    "start:prod": "cross-env UMI_ENV=prod max dev",
-    "build": "cross-env UMI_ENV=dev max build",
-    "build:test": "cross-env UMI_ENV=test max build",
-    "build:prod": "cross-env UMI_ENV=prod max build",
+    "start": "cross-env UMI_ENV=dev umi dev",
+    "start:test": "cross-env UMI_ENV=test umi dev",
+    "start:prod": "cross-env UMI_ENV=prod umi dev",
+    "build": "cross-env UMI_ENV=dev umi build",
+    "build:test": "cross-env UMI_ENV=test umi build",
+    "build:prod": "cross-env UMI_ENV=prod umi build",
     "postinstall": "umi setup",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "prepare": "husky install",
@@ -34,7 +34,9 @@
     "react-dom": "18.x",
     "react-redux": "^8.1.1",
     "redux": "^4.2.1",
-    "umi-request": "^1.4.0"
+    "umi-request": "^1.4.0",
+    "umi": "^4.0.42",
+    "umi-lint": "^2.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
@@ -44,7 +46,6 @@
     "@types/qs": "^6.9.7",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@umijs/max": "^4.0.0",
     "@umijs/plugins": "^4.0.72",
     "@umijs/test": "^3.5.41",
     "commitizen": "^4.3.0",

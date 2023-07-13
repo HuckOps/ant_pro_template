@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import React, { useEffect } from "react";
+import React from "react";
 
 type LoginType = "phone" | "account";
 
@@ -10,8 +10,5 @@ const iconStyles: CSSProperties = {
   cursor: "pointer",
 };
 export default function () {
-  useEffect(() => {
-    console.log("test");
-  });
   return <p>test</p>;
 }

@@ -16,10 +16,9 @@ export default function () {
   if (pathname === "/login") {
     return <Outlet />;
   }
-  const currentUser = useSelector((state: { user: any }) => {
-    return state.user;
+  const currentUser = useSelector((state: { currentUser: any }) => {
+    return state.currentUser;
   });
-  console.log(currentUser);
   const menuItemRender = (
     item: { path: any },
     dom:
@@ -45,7 +44,7 @@ export default function () {
       }}
       avatarProps={{
         size: "small",
-        title: currentUser?.username,
+        title: currentUser?.user?.username,
         render: (props, dom) => {
           return (
             <Dropdown

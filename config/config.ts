@@ -9,6 +9,7 @@ export default defineConfig({
   define: {
     "process.env": process.env,
   },
+  plugins: ["@umijs/plugins/dist/dva"],
   dva: {},
 
   // umi routes: https://umijs.org/docs/routing
