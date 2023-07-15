@@ -6,16 +6,20 @@ import {
 import { Dropdown } from "antd";
 import React, { ReactElement } from "react";
 import { Link, Outlet, useLocation, useSelector } from "umi";
+import defaultSettings from "../../config/defaultSettings";
 import routes from "../../config/routes";
+import { BodyFooterRender } from "./footer";
+
+const { REACT_APP_ENV } = process.env;
+
 export default function () {
   const { pathname } = useLocation();
   if (pathname === "/login") {
     return <Outlet />;
   }
-  const currentUser = useSelector((state: { user: any }) => {
-    return state.user;
+  const currentUser = useSelector((state: { currentUser: any }) => {
+    return state.currentUser;
   });
-  console.log(currentUser);
   const menuItemRender = (
     item: { path: any },
     dom:
@@ -28,6 +32,7 @@ export default function () {
   ) => <Link to={{ pathname: item.path }}>{dom}</Link>;
   return (
     <ProLayout
+      {...defaultSettings}
       location={{ pathname }}
       layout="mix"
       breadcrumbRender={(routes = []) => {
@@ -40,7 +45,9 @@ export default function () {
       }}
       avatarProps={{
         size: "small",
-        title: currentUser?.username,
+        title: currentUser?.user?.username,
+        // icon: currentUser?.user?.icon,
+        src: currentUser?.user?.icon,
         render: (props, dom) => {
           return (
             <Dropdown
@@ -59,6 +66,7 @@ export default function () {
           );
         },
       }}
+      footerRender={BodyFooterRender}
     >
       <PageContainer>
         <Outlet />

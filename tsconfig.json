@@ -13,6 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
+    "suppressImplicitAnyIndexErrors": true,
     "allowJs": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
@@ -37,6 +38,6 @@
     ".prettierrc.js",
     "jest.config.js",
     "mock/*"
-  ],
+, "commitlint.config.js"  ],
   "exclude": ["node_modules", "build", "dist", "scripts", "src/.umi/*", "webpack", "jest"]
 }
