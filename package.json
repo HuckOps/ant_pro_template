@@ -11,7 +11,7 @@
     "postinstall": "umi setup",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "prepare": "husky install",
-    "commit": "git add . && cz-customizable"
+    "commit": "cz-customizable"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -27,6 +27,7 @@
   "dependencies": {
     "@ant-design/pro-components": "^2.6.4",
     "@ant-design/pro-layout": "^6.5.0",
+    "antd": "^5.7.0",
     "cz": "^1.8.2",
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
@@ -35,9 +36,9 @@
     "react-dom": "18.x",
     "react-redux": "^8.1.1",
     "redux": "^4.2.1",
-    "umi-request": "^1.4.0",
     "umi": "^4.0.42",
-    "umi-lint": "^2.0.2"
+    "umi-lint": "^2.0.2",
+    "umi-request": "^1.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
@@ -59,7 +60,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
-    "typescript": "^4.1.2",
+    "typescript": "^3.8.2",
     "yorkie": "^2.0.0"
   },
   "config": {
