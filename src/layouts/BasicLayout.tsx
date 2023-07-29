@@ -14,6 +14,7 @@ const { REACT_APP_ENV } = process.env;
 
 export default function () {
   const { pathname } = useLocation();
+  // 登录页面不做页面封装直接返回
   if (pathname === "/login") {
     return <Outlet />;
   }
@@ -30,6 +31,7 @@ export default function () {
       | null
       | undefined
   ) => <Link to={{ pathname: item.path }}>{dom}</Link>;
+  // 非登录页面全部接入中台框架
   return (
     <ProLayout
       {...defaultSettings}
