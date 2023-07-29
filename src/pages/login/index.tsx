@@ -1,20 +1,16 @@
-import {
-  AlipayOutlined,
-  LockOutlined,
-  MobileOutlined,
-  TaobaoOutlined,
-  UserOutlined,
-  WeiboOutlined,
-} from "@ant-design/icons";
+import { login } from "@/service/api/api";
+import { LockOutlined, MobileOutlined, UserOutlined } from "@ant-design/icons";
 import {
   LoginFormPage,
   ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
 } from "@ant-design/pro-components";
-import { Divider, message, Space, Tabs } from "antd";
+import { message, Tabs } from "antd";
+import Cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
-import React, { useState } from "react";
+import { history } from "umi";
 
 type LoginType = "phone" | "account";
 
@@ -26,6 +22,9 @@ const iconStyles: CSSProperties = {
 };
 export default function () {
   const [loginType, setLoginType] = useState<LoginType>("phone");
+  useEffect(() => {
+    console.log("test");
+  });
   return (
     <div
       style={{
@@ -39,68 +38,14 @@ export default function () {
         logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
         title="Github"
         subTitle="全球最大的代码托管平台"
-        actions={
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-            }}
-          >
-            <Divider plain>
-              <span
-                style={{ color: "#CCC", fontWeight: "normal", fontSize: 14 }}
-              >
-                其他登录方式
-              </span>
-            </Divider>
-            <Space align="center" size={24}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  height: 40,
-                  width: 40,
-                  border: "1px solid #D4D8DD",
-                  borderRadius: "50%",
-                }}
-              >
-                <AlipayOutlined style={{ ...iconStyles, color: "#1677FF" }} />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  height: 40,
-                  width: 40,
-                  border: "1px solid #D4D8DD",
-                  borderRadius: "50%",
-                }}
-              >
-                <TaobaoOutlined style={{ ...iconStyles, color: "#FF6A10" }} />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  height: 40,
-                  width: 40,
-                  border: "1px solid #D4D8DD",
-                  borderRadius: "50%",
-                }}
-              >
-                <WeiboOutlined style={{ ...iconStyles, color: "#333333" }} />
-              </div>
-            </Space>
-          </div>
-        }
+        onFinish={async (values) => {
+          const result = await login(values);
+          if (result) {
+            Cookies.set("TOKEN", (result as API.login).token);
+            Cookies.set("EXP", String((result as API.login).exp));
+            history.push("/");
+          }
+        }}
       >
         <Tabs
           centered

@@ -5,4 +5,8 @@ declare namespace API {
     name: string;
     icon: string;
   };
+  type login = {
+    token: string;
+    exp: number;
+  };
 }
