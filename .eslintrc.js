@@ -1,12 +1,35 @@
 module.exports = {
-    root: true,
-    env: {
-      browser: true,
-      es6: true,
-      node: true
+    "env": {
+        "browser": true,
+        "es2021": true
     },
-    plugins: ['prettier'],
-    rules: {
-      'prettier/prettier': 'error'
+    "extends": [
+        "standard-with-typescript",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
+    ],
+
+    "overrides": [
+        {
+            "env": {
+                "node": true
+            },
+            "files": [
+                ".eslintrc.{js,cjs}"
+            ],
+            "parserOptions": {
+                "sourceType": "script"
+            }
+        }
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": ['./tsconfig.json'],
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
     }
-  }
+}

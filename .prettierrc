@@ -3,11 +3,11 @@
  
   "prettier.tabWidth": 2,
  
-  "prettier.useTabs": false,
+  "prettier.useTabs": true,
  
-  "prettier.semi": true, 
+  "prettier.semi": false, 
  
-  "prettier.singleQuote": true, 
+  "prettier.singleQuote": false, 
  
   "prettier.proseWrap": "preserve",
  
@@ -26,7 +26,7 @@
  
   "prettier.jsxBracketSameLine": false, 
  
-  "prettier.jsxSingleQuote": false, 
+  "prettier.jsxSingleQuote": true, 
  
   "prettier.parser": "babylon",
  
