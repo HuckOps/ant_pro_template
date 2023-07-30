@@ -8,7 +8,9 @@ export function AuthLayout(props: AuthLayoutProps): ReactElement | null {
   const { pathname } = useLocation();
 
   const dispatch = useDispatch();
-  const token = useMemo(() => Cookies.get("TOKEN"), []);
+  // 生成链： memo(监听TOKEN cookie) -> 触发effect -> 跳转登录页
+  //                                            |-> 调用models的effect获取用户数据存入本地
+  const token = useMemo(() => Cookies.get("TOKEN"), [Cookies.get("TOKEN")]);
 
   useEffect(() => {
     // model逻辑放入effect hook，解决重复渲染问题
